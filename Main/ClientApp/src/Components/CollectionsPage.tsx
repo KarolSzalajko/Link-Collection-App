@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, useRouteMatch } from "react-router-dom";
-import CollectionStatsView from "./CollectionStatsView";
 import CollectionView from "./CollectionView";
 import PanelWideMessage from "./Common/PanelWideMessage";
 import ContentWithDrawer from "./ContentWithDrawer";
@@ -24,11 +23,6 @@ export default function CollectionsPage(props: CollectionsSiteProps) {
           component={SharedCollectionView}
         />
         <Route exact path={`${url}/:collectionId`} component={CollectionView} />
-        <Route
-          exact
-          path={`${url}/:collectionId/stats`}
-          component={CollectionStatsView}
-        />
       </ContentWithDrawer>
     </Layout>
   );

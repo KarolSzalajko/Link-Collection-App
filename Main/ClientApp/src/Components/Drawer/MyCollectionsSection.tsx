@@ -7,10 +7,10 @@ import {
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {
   Delete,
-  Edit, Equalizer, GroupAdd, Lock, LockOpen, Public, Widgets
+  Edit, GroupAdd, Lock, LockOpen, Public, Widgets
 } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import { Collection } from "../../Model/Collection";
 import { SharedCollection } from "../../Model/SharedCollection";
 import CollectionsStore from "../../Stores/CollectionsStore";
@@ -176,19 +176,6 @@ export default function MyCollectionsSection() {
                       </ListItemIcon>
                       <ListItemText primary="Kopiuj link do udostępniania" />
                     </ListItem>
-
-                    {collection.isPublic && (
-                      <ListItem
-                        button
-                        component={Link}
-                        to={`${url}/${collection.id}/stats`}
-                      >
-                        <ListItemIcon>
-                          <Equalizer />
-                        </ListItemIcon>
-                        <ListItemText primary="Statystyki" />
-                      </ListItem>
-                    )}
 
                     {/* TODO: make private listitem */}
                     <ListItem
