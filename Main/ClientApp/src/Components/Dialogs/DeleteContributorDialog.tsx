@@ -1,6 +1,6 @@
 import React from "react";
-import DeleteDialog from "./DeleteDialog";
 import { deleteContributorOfCollection } from "../../Actions/CollectionActions";
+import DeleteDialog from "./DeleteDialog";
 
 type DeleteContributorDialogProps = {
   open: boolean;
@@ -13,9 +13,9 @@ type DeleteContributorDialogProps = {
 export default function DeleteContributorDialog(
   props: DeleteContributorDialogProps
 ) {
-  const title = "Do you want to delete this contributor?";
+  const title = "Czy chesz usunąć tego współtwórcę?";
   const description =
-    "This contributor will lose permissions to this collection. Do you want to proceed?";
+    "Ten współtwórca straci uprawnienia do tej kolekcji. Czy chcesz kontynuować?";
   return (
     <DeleteDialog
       open={props.open}

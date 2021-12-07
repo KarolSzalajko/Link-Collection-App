@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { Element } from "../Model/Element";
-import { GetUserFriendlyHostname } from "../Infrastructure/UrlUtilities";
 import {
-  makeStyles,
-  Theme,
-  createStyles,
-  Chip,
-  Select,
-  MenuItem,
-  IconButton,
-  Slider,
-  Grid,
-  Typography,
+  Chip, createStyles, Grid, IconButton, makeStyles, MenuItem, Select, Slider, Theme, Typography
 } from "@material-ui/core";
 import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
+import React, { useEffect, useState } from "react";
 import { useCookie } from "../Infrastructure/CustomReactHooks";
+import { GetUserFriendlyHostname } from "../Infrastructure/UrlUtilities";
+import { Element } from "../Model/Element";
 
 type HostFilter = {
   host: string;
@@ -82,9 +73,9 @@ export function ElementControlMenu(props: ElementControlMenuProps) {
   const classes = useStyles();
 
   let sortingOptions = [
-    { key: 1, label: "Default", orderFunc: sortDefault },
-    { key: 2, label: "Name", orderFunc: sortByName },
-    { key: 3, label: "Hostname", orderFunc: sortByHost },
+    { key: 1, label: "Domyślnie", orderFunc: sortDefault },
+    { key: 2, label: "Nazwa", orderFunc: sortByName },
+    { key: 3, label: "Adres strony", orderFunc: sortByHost },
   ] as SortingOption[];
 
   let [sortingOption, setSortingOption] = useState(sortingOptions[0]);

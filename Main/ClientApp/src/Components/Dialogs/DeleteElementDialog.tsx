@@ -1,6 +1,6 @@
 import React from "react";
-import DeleteDialog from "./DeleteDialog";
 import { deleteElement } from "../../Actions/ElementActions";
+import DeleteDialog from "./DeleteDialog";
 
 type DeleteElementDialogProps = {
   open: boolean;
@@ -10,9 +10,9 @@ type DeleteElementDialogProps = {
 };
 
 export default function DeleteElementDialog(props: DeleteElementDialogProps) {
-  const title = "Do you want to delete this element?";
+  const title = "Czy na pewno chcesz usunąć ten element?";
   const description =
-    "This element will be irreversibly deleted. Do you want to proceed?";
+    "Ten element zostanie nieodwracalnie usunięty. Czy chcesz kontynuować?";
   return (
     <DeleteDialog
       open={props.open}

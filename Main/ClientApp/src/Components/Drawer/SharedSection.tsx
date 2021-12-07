@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import DrawerItem from "./DrawerItem";
-import { People, Edit, Visibility } from "@material-ui/icons";
 import { List } from "@material-ui/core";
+import { Edit, People, Visibility } from "@material-ui/icons";
+import React, { useEffect, useState } from "react";
 import SharedCollectionsStore from "../../Stores/SharedCollectionsStore";
+import DrawerItem from "./DrawerItem";
 import DrawerItemNested from "./DrawerItemNested";
 
 export default function SharedSection() {
@@ -23,7 +23,7 @@ export default function SharedSection() {
 
   return (
     <DrawerItem
-      title="Shared with me"
+      title="Udostępnione dla mnie"
       icon={<People />}
       nestedList={
         <List component="div" disablePadding>

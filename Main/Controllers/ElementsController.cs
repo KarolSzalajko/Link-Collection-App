@@ -42,7 +42,7 @@ namespace LinkCollectionApp.Controllers
         return NotFound();
 
       if (collection.Elements.Count >= _configurationProvider.MaxElementsInCollection)
-        return BadRequest("Could not add the element: Maximum number of elements reached");
+        return BadRequest("Nie można dodać elementu: Maksymalny limit elementów został osiągnięty");
 
       var lastSequenceInCollection = collection.Elements.Max(e => e.Sequence);
       var element = new Element
