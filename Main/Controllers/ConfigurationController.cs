@@ -24,7 +24,5 @@ namespace LinkCollectionApp.Controllers
       _configurationProvider = configurationProvider;
       _userProvider = userProvider;
     }
-    
-    }
   }
 }
