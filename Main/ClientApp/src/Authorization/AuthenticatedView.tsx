@@ -94,17 +94,6 @@ export default function AuthenticatedView(props: AuthenticatedViewProps) {
         <ListItem
           button
           component={Link}
-          to={props.profilePath}
-          onClick={closeMenu}
-        >
-          <ListItemIcon>
-            <Settings />
-          </ListItemIcon>
-          <ListItemText primary="Settings" />
-        </ListItem>
-        <ListItem
-          button
-          component={Link}
           to={props.logoutPath}
           onClick={closeMenu}
         >
