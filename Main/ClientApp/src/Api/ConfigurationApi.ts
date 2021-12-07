@@ -1,6 +1,6 @@
 import {
   authorizedGet,
-  authorizedPatch,
+  authorizedPatch
 } from "../Infrastructure/FetchUtilities";
 import { Configuration } from "../Model/Configuration";
 
@@ -14,13 +14,6 @@ class ConfigurationApi {
   async updateConfiguration(newConfig: Configuration): Promise<boolean> {
     let response = await authorizedPatch(`api/configuration`, newConfig);
     return response.ok;
-  }
-
-  async getSpotifyClientId(): Promise<string | null> {
-    let response = await authorizedGet("api/configuration/spotifyclientid");
-    if (!response.ok) return null;
-    let clientId = await response.text();
-    return clientId;
   }
 }
 
