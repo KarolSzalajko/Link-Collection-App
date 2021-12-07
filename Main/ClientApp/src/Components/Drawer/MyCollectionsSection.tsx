@@ -1,39 +1,29 @@
-import React, { useState, useEffect } from "react";
+import {
+  Avatar, Divider, List,
+  ListItem, ListItemAvatar, ListItemIcon,
+  ListItemText,
+  Typography
+} from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Typography,
-  Divider,
-  ListItemAvatar,
-  Avatar,
-} from "@material-ui/core";
-import {
-  Lock,
-  Widgets,
-  Public,
-  GroupAdd,
   Delete,
-  Edit,
-  LockOpen,
-  Equalizer,
+  Edit, GroupAdd, Lock, LockOpen, Public, Widgets
 } from "@material-ui/icons";
-import DrawerItem from "./DrawerItem";
-import DrawerItemNested from "./DrawerItemNested";
-import CollectionsStore from "../../Stores/CollectionsStore";
-import SharedCollectionsStore from "../../Stores/SharedCollectionsStore";
-import ListItemAdd from "../ListItemAdd";
-import EditCollectionDialog from "../Dialogs/EditCollectionDialog";
-import EditContributorDialog from "../Dialogs/EditContributorDialog";
-import ShareCollectionDialog from "../Dialogs/ShareCollectionDialog";
-import AddCollectionDialog from "../Dialogs/AddCollectionDialog";
+import React, { useEffect, useState } from "react";
+import { useRouteMatch } from "react-router-dom";
 import { Collection } from "../../Model/Collection";
 import { SharedCollection } from "../../Model/SharedCollection";
+import CollectionsStore from "../../Stores/CollectionsStore";
+import SharedCollectionsStore from "../../Stores/SharedCollectionsStore";
+import AddCollectionDialog from "../Dialogs/AddCollectionDialog";
 import DeleteCollectionDialog from "../Dialogs/DeleteCollectionDialog";
+import EditCollectionDialog from "../Dialogs/EditCollectionDialog";
+import EditContributorDialog from "../Dialogs/EditContributorDialog";
 import MakePublicDialog from "../Dialogs/MakePublicDialog";
-import { Link, useRouteMatch } from "react-router-dom";
+import ShareCollectionDialog from "../Dialogs/ShareCollectionDialog";
+import ListItemAdd from "../ListItemAdd";
+import DrawerItem from "./DrawerItem";
+import DrawerItemNested from "./DrawerItemNested";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -186,19 +176,6 @@ export default function MyCollectionsSection() {
                       </ListItemIcon>
                       <ListItemText primary="Get sharable link" />
                     </ListItem>
-
-                    {collection.isPublic && (
-                      <ListItem
-                        button
-                        component={Link}
-                        to={`${url}/${collection.id}/stats`}
-                      >
-                        <ListItemIcon>
-                          <Equalizer />
-                        </ListItemIcon>
-                        <ListItemText primary="Stats" />
-                      </ListItem>
-                    )}
 
                     {/* TODO: make private listitem */}
                     <ListItem
