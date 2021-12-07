@@ -4,7 +4,6 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import ApiAuthorizationRoutes from "./Authorization/ApiAuthorizationRoutes";
 import AuthorizeRoute from "./Authorization/AuthorizeRoute";
-import AdminPage from "./Components/AdminPage";
 import CollectionsPage from "./Components/CollectionsPage";
 import InfoSnackBar from "./Components/InfoSnackBar";
 import PublicCollectionPage from "./Components/PublicCollectionPage";
@@ -19,7 +18,7 @@ function App() {
         <Route exact path="/" component={WelcomeScreen} />
         <AuthorizeRoute path="/collections/" component={CollectionsPage} />
         <Route path="/public/" component={PublicCollectionPage} />
-        <AuthorizeRoute path="/admin/" component={AdminPage} />
+        
         <InfoSnackBar />
       </Paper>
     </ThemeProvider>
