@@ -34,7 +34,7 @@ export class Logout extends Component {
           // This prevents regular links to <app>/authentication/logout from triggering a logout
           this.setState({
             isReady: true,
-            message: "The logout was not initiated from within the page.",
+            message: "Wylogowanie nie zosta³o zainicjowane ze strony.",
           });
         }
         break;
@@ -44,7 +44,7 @@ export class Logout extends Component {
       case LogoutActions.LoggedOut:
         this.setState({
           isReady: true,
-          message: "You successfully logged out!",
+          message: "Poprawnie wylogowano!",
         });
         break;
       default:
@@ -65,10 +65,10 @@ export class Logout extends Component {
       const action = this.props.action;
       switch (action) {
         case LogoutActions.Logout:
-          return <PanelWideMessage withThrobber text="Processing logout" />;
+          return <PanelWideMessage withThrobber text="Przetwarzanie wylogowania" />;
         case LogoutActions.LogoutCallback:
           return (
-            <PanelWideMessage withThrobber text="Processing logout callback" />
+            <PanelWideMessage withThrobber text="Przetwarzanie wylogowania" />
           );
         case LogoutActions.LoggedOut:
           return <Redirect to="/" />;
@@ -96,7 +96,7 @@ export class Logout extends Component {
           throw new Error("Invalid authentication result status.");
       }
     } else {
-      this.setState({ message: "You successfully logged out!" });
+      this.setState({ message: "Wylogowano poprawnie!" });
     }
   }
 
