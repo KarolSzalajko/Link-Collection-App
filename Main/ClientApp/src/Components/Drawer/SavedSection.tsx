@@ -1,12 +1,12 @@
+import { List } from "@material-ui/core";
+import { Save } from "@material-ui/icons";
 import React from "react";
 import DrawerItem from "./DrawerItem";
-import { Save } from "@material-ui/icons";
-import { List } from "@material-ui/core";
 
 export default function SavedSection() {
   return (
     <DrawerItem
-      title="Saved"
+      title="Zapisane"
       icon={<Save />}
       nestedList={<List component="div" disablePadding></List>}
     />

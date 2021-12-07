@@ -1,8 +1,8 @@
-import React from "react";
 import { Button, TextField } from "@material-ui/core";
-import SimpleDialog from "./SimpleDialog";
+import React from "react";
 import { addElement } from "../../Actions/ElementActions";
 import { ElementCreationData } from "../../Model/Element";
+import SimpleDialog from "./SimpleDialog";
 
 type AddElementDialogProps = {
   open: boolean;
@@ -34,8 +34,8 @@ export default function AddElementDialog(props: AddElementDialogProps) {
     <SimpleDialog
       open={props.open}
       toggleDialogOpen={props.toggleDialogOpen}
-      title="Add Element"
-      description="Enter name and url address of a new element here. You can change later settings for this element."
+      title="Dodaj Element"
+      description="Wprowadź nazwę, adres url i opis nowego elementu. Możesz później zmienić ustawienia dla tego elementu."
       content={
         <>
           <TextField
@@ -45,7 +45,7 @@ export default function AddElementDialog(props: AddElementDialogProps) {
             id="elementName"
             label="Element name"
             type="email"
-            placeholder="MyElement"
+            placeholder="MójElement"
             fullWidth
           />
           <TextField
@@ -55,7 +55,7 @@ export default function AddElementDialog(props: AddElementDialogProps) {
             id="elementDescription"
             label="Url"
             type="email"
-            placeholder="Link to MyElement"
+            placeholder="Link do mojego elementu"
             fullWidth
           />
         </>

@@ -7,7 +7,6 @@ import AuthorizeRoute from "./Authorization/AuthorizeRoute";
 import CollectionsPage from "./Components/CollectionsPage";
 import InfoSnackBar from "./Components/InfoSnackBar";
 import PublicCollectionPage from "./Components/PublicCollectionPage";
-import SpotifyCallbackPage from "./Components/SpotifyCallbackPage";
 import ThemeProvider from "./Components/ThemeProvider";
 import WelcomeScreen from "./Components/WelcomeScreen";
 
@@ -19,10 +18,7 @@ function App() {
         <Route exact path="/" component={WelcomeScreen} />
         <AuthorizeRoute path="/collections/" component={CollectionsPage} />
         <Route path="/public/" component={PublicCollectionPage} />
-        <AuthorizeRoute
-          path="/spotifycallback/"
-          component={SpotifyCallbackPage}
-        />
+        
         <InfoSnackBar />
       </Paper>
     </ThemeProvider>

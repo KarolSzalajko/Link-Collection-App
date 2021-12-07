@@ -1,6 +1,6 @@
 import React from "react";
-import DeleteDialog from "./DeleteDialog";
 import { deleteCollection } from "../../Actions/CollectionActions";
+import DeleteDialog from "./DeleteDialog";
 
 type DeleteCollectionDialogProps = {
   open: boolean;
@@ -11,9 +11,9 @@ type DeleteCollectionDialogProps = {
 export default function DeleteCollectionDialog(
   props: DeleteCollectionDialogProps
 ) {
-  const title = "Do you want to delete this collection?";
+  const title = "Czy na pewno chcesz usunąć tą kolekcję?";
   const description =
-    "Collection and all it content will be irreversibly deleted. Do you want to proceed?";
+    "Kolekcja i wszystkie znajdujące się w niej elementy zostaną nieodwracalnie usunięte. Czy chcesz kontynuować?";
   return (
     <DeleteDialog
       open={props.open}

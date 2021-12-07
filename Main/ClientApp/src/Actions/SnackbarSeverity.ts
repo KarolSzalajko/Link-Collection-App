@@ -4,3 +4,4 @@ export default {
   WARNING: "warning",
   INFO: "info",
 };
+//TODO: check

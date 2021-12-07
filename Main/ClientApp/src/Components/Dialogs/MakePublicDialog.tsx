@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
-import SimpleDialog from "./SimpleDialog";
 import {
-  Button,
-  makeStyles,
-  Theme,
-  createStyles,
-  CircularProgress,
+  Button, CircularProgress, createStyles, makeStyles,
+  Theme
 } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { DisplayMessageInSnackbar } from "../../Actions/UIActions";
 import CollectionsApi from "../../Api/CollectionsApi";
 import CollectionsStore from "../../Stores/CollectionsStore";
-import { DisplayMessageInSnackbar } from "../../Actions/UIActions";
+import SimpleDialog from "./SimpleDialog";
 
 type MakePublicDialogProps = {
   open: boolean;
@@ -38,11 +35,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function MakePublicDialog(props: MakePublicDialogProps) {
   const classes = useStyles();
-  const title = "Get sharable link";
-  const description = `You can make this collection publicly available, so anyone with the link will be able to view the contents. 
-  Do you want to proceed?`;
+  const title = "Kopiuj link do udostępniania";
+  const description = `Możesz upublicznić tą kolekcję, aby każdy posiadający link mógł ją przeglądać. 
+  Czy chcesz kontynuować?`;
   const successDescription =
-    "Collection is now public! You can now share it with everyone using the link below.";
+    "Kolekcja upubliczniona! Możesz teraz wysłać ją innym, używając poniższego linku.";
 
   const [loading, setLoading] = React.useState(false);
   const [sharableLink, setSharableLink] = useState("");
@@ -72,7 +69,7 @@ export default function MakePublicDialog(props: MakePublicDialogProps) {
 
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(sharableLink);
-    DisplayMessageInSnackbar("Link copied to clipboard");
+    DisplayMessageInSnackbar("Link skopiowany");
   };
 
   return (

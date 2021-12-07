@@ -1,12 +1,12 @@
-import Dispatcher from "../Infrastructure/Dispatcher";
-import SharedCollectionsApi from "../Api/SharedCollectionsApi";
 import CollectionsApi from "../Api/CollectionsApi";
-import ActionTypes from "./ActionTypes";
+import SharedCollectionsApi from "../Api/SharedCollectionsApi";
+import Dispatcher from "../Infrastructure/Dispatcher";
 import {
   CollectionCreationData,
-  CollectionUpdateData,
+  CollectionUpdateData
 } from "../Model/Collection";
 import { SharedCollectionData } from "../Model/SharedCollection";
+import ActionTypes from "./ActionTypes";
 import { DisplayMessageInSnackbar } from "./UIActions";
 
 export async function loadCollections() {
@@ -31,7 +31,7 @@ export async function addCollection(
 export async function deleteCollection(id: number) {
   let success = await CollectionsApi.deleteCollection(id);
   if (success) loadCollections();
-  else console.error("Could not delete collection");
+  else console.error("Nie można usunąć kolekcji");
 }
 
 export async function updateCollection(
@@ -42,7 +42,7 @@ export async function updateCollection(
   if (success) {
     loadCollections();
     loadSharedCollections();
-  } else console.error("Could not update collection");
+  } else console.error("Nie można zaktualizować kolekcji");
 }
 
 export async function loadSharedCollections() {
@@ -76,7 +76,7 @@ export async function changeContributorRights(
   if (success) {
     loadSharedCollections();
     loadSharedCollectionsRelatedToCollections();
-  } else console.error("Could not change contributor rights");
+  } else console.error("Nie można zmienić uprawnień współtwórcy");
 }
 
 export async function deleteContributorOfCollection(
@@ -89,5 +89,5 @@ export async function deleteContributorOfCollection(
   );
   if (success) {
     loadSharedCollectionsRelatedToCollections();
-  } else console.error("Could not delete shared collection");
+  } else console.error("Nie można usunąć upublicznionej kolekcji");
 }

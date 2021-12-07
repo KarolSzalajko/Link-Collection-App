@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
-import BaseCollectionView from "./BaseCollectionView";
-import { Collection } from "../Model/Collection";
 import CollectionsApi from "../Api/PublicCollectionsApi";
+import { Collection } from "../Model/Collection";
+import BaseCollectionView from "./BaseCollectionView";
 import PanelWideMessage from "./Common/PanelWideMessage";
 
 type PublicCollectionViewProps = RouteComponentProps & {
@@ -27,9 +27,9 @@ export default function PublicCollectionView(props: PublicCollectionViewProps) {
 
   //TODO: Refactor, this is unreadable
   return isLoaded === false ? (
-    <PanelWideMessage withThrobber text="Please wait..." />
+    <PanelWideMessage withThrobber text="Proszę poczekać..." />
   ) : collection === null ? (
-    <PanelWideMessage text="Collection doesn't exists or is private" />
+    <PanelWideMessage text="Kolekcja nie istnieje lub jest prywatna" />
   ) : (
     <BaseCollectionView collection={collection} />
   );

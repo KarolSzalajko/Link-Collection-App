@@ -1,11 +1,11 @@
 import React from "react";
-import Layout from "./Layout";
-import ContentWithDrawer from "./ContentWithDrawer";
 import { Route, useRouteMatch } from "react-router-dom";
-import PanelWideMessage from "./Common/PanelWideMessage";
-import CollectionView from "./CollectionView";
-import SharedCollectionView from "./SharedCollectionView";
 import CollectionStatsView from "./CollectionStatsView";
+import CollectionView from "./CollectionView";
+import PanelWideMessage from "./Common/PanelWideMessage";
+import ContentWithDrawer from "./ContentWithDrawer";
+import Layout from "./Layout";
+import SharedCollectionView from "./SharedCollectionView";
 
 export default function CollectionsPage(props: CollectionsSiteProps) {
   let { path, url } = useRouteMatch();
@@ -16,7 +16,7 @@ export default function CollectionsPage(props: CollectionsSiteProps) {
           exact
           path={path}
           component={() => (
-            <PanelWideMessage text="Select a collection to display" />
+            <PanelWideMessage text="Wybierz kolekcję do wyświetlenia" />
           )}
         />
         <Route
