@@ -1,9 +1,8 @@
 import SpotifyApi from "../Api/SpotifyApi";
-import { DisplayMessageInSnackbar } from "./UIActions";
 import Dispatcher from "../Infrastructure/Dispatcher";
 import ActionTypes from "./ActionTypes";
-import ConfigurationApi from "../Api/ConfigurationApi";
 import SnackbarSeverity from "./SnackbarSeverity";
+import { DisplayMessageInSnackbar } from "./UIActions";
 
 type SpotifyErrorResponse = {
   error: {
@@ -36,18 +35,4 @@ export async function getTrackInfo(trackId: string, userToken: string) {
     actionType: ActionTypes.GET_SPOTIFY_TRACK_INFO,
     payload: { trackId: trackId, trackInfo: trackInfo },
   });
-}
-
-export async function getSpotifyClientId() {
-  let clientId = await ConfigurationApi.getSpotifyClientId();
-  if (clientId === null)
-    DisplayMessageInSnackbar(
-      "Could not fetch client id",
-      SnackbarSeverity.ERROR
-    );
-  else
-    Dispatcher.dispatch({
-      actionType: ActionTypes.GET_SPOTIFY_CLIENT_ID,
-      payload: { clientId: clientId },
-    });
 }
