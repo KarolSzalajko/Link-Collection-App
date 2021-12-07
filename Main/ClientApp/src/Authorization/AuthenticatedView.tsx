@@ -111,7 +111,7 @@ export default function AuthenticatedView(props: AuthenticatedViewProps) {
           <ListItemIcon>
             <ExitToApp />
           </ListItemIcon>
-          <ListItemText primary="Logout" />
+          <ListItemText primary="Wyloguj" />
         </ListItem>
       </Menu>
     </>

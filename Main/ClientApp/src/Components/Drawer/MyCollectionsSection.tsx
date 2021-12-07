@@ -130,7 +130,7 @@ export default function MyCollectionsSection() {
   return (
     <>
       <DrawerItem
-        title="My collections"
+        title="Moje kolekcje"
         icon={<Widgets />}
         nestedList={
           <List component="div" disablePadding>
