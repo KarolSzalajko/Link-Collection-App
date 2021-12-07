@@ -45,15 +45,5 @@ namespace LinkCollectionApp.Controllers
       _configurationProvider.MaxElementsInCollection = newConfig.MaxElementsInCollection;
       return Ok();
     }
-
-    [Authorize]
-    [HttpGet("spotifyclientid")]
-    public ActionResult<string> GetSpotifyClientId()
-    {
-      var entry = _dbContext.Configuration.SingleOrDefault(c => c.Key == "SpotifyClientId");
-      if (entry == null)
-        return NotFound();
-      return entry.Value;
-    }
   }
 }
