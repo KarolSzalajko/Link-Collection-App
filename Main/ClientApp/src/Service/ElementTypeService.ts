@@ -5,20 +5,11 @@ class ElementTypeService {
   getElementType(element: Element): ElementType {
     if (this.isImageElement(element)) return ElementType.IMAGE;
     if (this.isYoutubeElement(element)) return ElementType.YOUTUBE;
-    if (this.isSpotifyElement(element)) return ElementType.SPOTIFY;
     return ElementType.BASIC;
   }
 
   isImageElement = (element: Element) => {
     return element.link.match(/\.(jpeg|jpg|gif|png)$/) != null;
-  };
-
-  isSpotifyElement = (element: Element) => {
-    return (
-      element.link.match(
-        /(https?:\/\/open.spotify.com\/(track)\/[a-zA-Z0-9]+(\/playlist\/[a-zA-Z0-9]+|)|spotify:(track):[a-zA-Z0-9]+(:playlist:[a-zA-Z0-9]+|))/
-      ) != null
-    );
   };
 
   isYoutubeElement = (element: Element) => {

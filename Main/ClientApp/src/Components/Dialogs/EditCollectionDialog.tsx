@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
 import { updateCollection } from "../../Actions/CollectionActions";
 import { Collection, CollectionUpdateData } from "../../Model/Collection";
 import CollectionsStore from "../../Stores/CollectionsStore";
@@ -12,8 +12,8 @@ type EditCollectionDialogProps = {
 };
 
 export default function EditCollectionDialog(props: EditCollectionDialogProps) {
-  const title = "Edit collection";
-  const description = "Enter new name for this collection.";
+  const title = "Edytuj kolekcję";
+  const description = "Wpisz nową nazwę dla tej kolekcji.";
   let [collection, setCollection] = useState<Collection | null>(null);
   const [inputText, setInputText] = React.useState("");
 
@@ -51,7 +51,7 @@ export default function EditCollectionDialog(props: EditCollectionDialogProps) {
           autoFocus
           margin="dense"
           id="collectionName"
-          label="Collection name"
+          label="Nazwa kolekcji"
           type="email"
           placeholder={collection?.name}
           fullWidth

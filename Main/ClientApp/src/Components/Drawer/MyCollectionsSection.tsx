@@ -155,7 +155,7 @@ export default function MyCollectionsSection() {
                       <ListItemIcon>
                         <Delete />
                       </ListItemIcon>
-                      <ListItemText primary="Delete" />
+                      <ListItemText primary="Usuń" />
                     </ListItem>
                     <ListItem
                       onClick={() => onUpdateCollectionClick(collection.id)}
@@ -164,7 +164,7 @@ export default function MyCollectionsSection() {
                       <ListItemIcon>
                         <Edit />
                       </ListItemIcon>
-                      <ListItemText primary="Edit" />
+                      <ListItemText primary="Edytuj" />
                     </ListItem>
                     <Divider />
                     <ListItem
@@ -174,7 +174,7 @@ export default function MyCollectionsSection() {
                       <ListItemIcon>
                         <LockOpen />
                       </ListItemIcon>
-                      <ListItemText primary="Get sharable link" />
+                      <ListItemText primary="Kopiuj link do udostępniania" />
                     </ListItem>
 
                     {/* TODO: make private listitem */}
@@ -185,7 +185,7 @@ export default function MyCollectionsSection() {
                       <ListItemIcon>
                         <GroupAdd />
                       </ListItemIcon>
-                      <ListItemText primary="Share" />
+                      <ListItemText primary="Udostępnij" />
                     </ListItem>
                     {hasSharedCollections(collection.id) && <Divider />}
                     {contributorsOfSharedCollections
@@ -214,7 +214,7 @@ export default function MyCollectionsSection() {
               onClickHandler={() => {
                 toggleAddElementDialogOpen();
               }}
-              text="Add collection"
+              text="Dodaj kolekcję"
               className={classes.addItem}
             />
           </List>

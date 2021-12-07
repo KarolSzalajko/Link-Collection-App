@@ -1,27 +1,21 @@
-import React, { ReactNode, useEffect, useState } from "react";
 import {
-  Card,
-  CardHeader,
-  Avatar,
-  CardContent,
-  Menu,
-  ListItem,
+  Avatar, Card, CardContent, CardHeader, IconButton, ListItem,
   ListItemIcon,
-  ListItemText,
+  ListItemText, Menu
 } from "@material-ui/core";
-import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
-import { Element as ElementModel } from "../Model/Element";
-import { IconButton } from "@material-ui/core";
-import { MoreVert, Delete, Edit } from "@material-ui/icons";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { Delete, Edit, MoreVert } from "@material-ui/icons";
+import React, { ReactNode, useEffect, useState } from "react";
+import { parse } from "tldts";
+import { getFaviconUrl } from "../Actions/FaviconActions";
+import DeleteElementDialog from "../Components/Dialogs/DeleteElementDialog";
+import EditElementDialog from "../Components/Dialogs/EditElementDialog";
 import {
   GetHostnameLink,
   GetProperUrl,
-  OpenInNewTab,
+  OpenInNewTab
 } from "../Infrastructure/UrlUtilities";
-import EditElementDialog from "../Components/Dialogs/EditElementDialog";
-import DeleteElementDialog from "../Components/Dialogs/DeleteElementDialog";
-import { parse } from "tldts";
-import { getFaviconUrl } from "../Actions/FaviconActions";
+import { Element as ElementModel } from "../Model/Element";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -88,7 +82,7 @@ export default function ElementView(props: ElementViewProps) {
           subheader={elementUrl}
           action={
             <IconButton
-              aria-label="settings"
+              aria-label="Ustawienia"
               onClick={(e) => {
                 e.stopPropagation();
                 onMenuOpen(e);
@@ -115,13 +109,13 @@ export default function ElementView(props: ElementViewProps) {
             <ListItemIcon>
               <Delete />
             </ListItemIcon>
-            <ListItemText primary="Delete" />
+            <ListItemText primary="Usuń" />
           </ListItem>
           <ListItem onClick={() => setEditDialogOpen(true)} button>
             <ListItemIcon>
               <Edit />
             </ListItemIcon>
-            <ListItemText primary="Edit" />
+            <ListItemText primary="Edytuj" />
           </ListItem>
         </div>
       </Menu>

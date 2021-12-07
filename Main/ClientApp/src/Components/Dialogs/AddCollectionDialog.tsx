@@ -1,8 +1,8 @@
-import React from "react";
 import { Button, TextField } from "@material-ui/core";
+import React from "react";
+import { addCollection } from "../../Actions/CollectionActions";
 import { CollectionCreationData } from "../../Model/Collection";
 import SimpleDialog from "./SimpleDialog";
-import { addCollection } from "../../Actions/CollectionActions";
 
 type AddCollectionDialogProps = {
   open: boolean;
@@ -24,9 +24,8 @@ export default function AddCollectionDialog(props: AddCollectionDialogProps) {
     <SimpleDialog
       open={props.open}
       toggleDialogOpen={props.toggleDialogOpen}
-      title="Add Collection"
-      description="  Enter name of a new category here. You can change later settings for
-    this category."
+      title="Dodaj kolekcję"
+      description="  Wprowadź nazwę kolekcji. Możesz później zmienieć ustawienia dla tej kolekcji."
       content={
         <TextField
           onChange={(e) => handleInputChange(e.target.value)}
@@ -35,7 +34,7 @@ export default function AddCollectionDialog(props: AddCollectionDialogProps) {
           id="collectionName"
           label="Collection name"
           type="email"
-          placeholder="MyCollection"
+          placeholder="MojaKolekcja"
           fullWidth
         />
       }

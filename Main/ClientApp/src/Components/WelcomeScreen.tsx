@@ -39,7 +39,7 @@ export default function WelcomeScreen() {
       authService.unsubscribe(subscription);
     };
   }, []);
-
+// TODO: zrobić coś innego, link do dokumentacji np na Notion
   return (
     <Layout>
       <Box className={classes.root}>

@@ -24,36 +24,7 @@ namespace LinkCollectionApp.Controllers
       _configurationProvider = configurationProvider;
       _userProvider = userProvider;
     }
-
-    [HttpGet]
-    public ActionResult<CollectionConfiguration> GetConfiguration()
-    {
-      //TODO: Consider extracting to a annotation or an action filter
-      if (_userProvider.IsCurrentUserInRole("Administrator") == false)
-        return Forbid();
-
-      return _configurationProvider.GetModel();
-    }
-
-    [HttpPatch]
-    public IActionResult UpdateConfiguration([FromBody] CollectionConfiguration newConfig)
-    {
-      if (_userProvider.IsCurrentUserInRole("Administrator") == false)
-        return Forbid();
-
-      _configurationProvider.MaxCollectionsPerUser = newConfig.MaxCollectionsPerUser;
-      _configurationProvider.MaxElementsInCollection = newConfig.MaxElementsInCollection;
-      return Ok();
-    }
-
-    [Authorize]
-    [HttpGet("spotifyclientid")]
-    public ActionResult<string> GetSpotifyClientId()
-    {
-      var entry = _dbContext.Configuration.SingleOrDefault(c => c.Key == "SpotifyClientId");
-      if (entry == null)
-        return NotFound();
-      return entry.Value;
+    
     }
   }
 }

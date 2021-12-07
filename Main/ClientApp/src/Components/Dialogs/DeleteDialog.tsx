@@ -1,6 +1,6 @@
+import { Button } from "@material-ui/core";
 import React from "react";
 import SimpleDialog from "./SimpleDialog";
-import { Button } from "@material-ui/core";
 
 type DeleteDialogProps = {
   open: boolean;
@@ -28,7 +28,7 @@ export default function DeleteDialog(props: DeleteDialogProps) {
           color="secondary"
           autoFocus
         >
-          Confirm
+          Potwierdź
         </Button>
       }
     />

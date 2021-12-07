@@ -15,7 +15,7 @@ export default function CollectionsPage(props: CollectionsSiteProps) {
           exact
           path={path}
           component={() => (
-            <PanelWideMessage text="Select a collection to display" />
+            <PanelWideMessage text="Wybierz kolekcję do wyświetlenia" />
           )}
         />
         <Route

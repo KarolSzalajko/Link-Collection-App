@@ -56,10 +56,10 @@ export class Login extends Component {
     } else {
       switch (action) {
         case LoginActions.Login:
-          return <PanelWideMessage withThrobber text="Processing login" />;
+          return <PanelWideMessage withThrobber text="Przetwarzanie logowania" />;
         case LoginActions.LoginCallback:
           return (
-            <PanelWideMessage withThrobber text="Processing login callback" />
+            <PanelWideMessage withThrobber text="Przetwarzanie logowania" />
           );
         case LoginActions.Profile:
         case LoginActions.Register:

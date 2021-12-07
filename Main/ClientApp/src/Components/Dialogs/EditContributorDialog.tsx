@@ -1,25 +1,15 @@
-import React, { useState, ChangeEvent, useEffect } from "react";
-import SimpleDialog from "./SimpleDialog";
+import {
+  Avatar, Button, createStyles, FormControl, Grid, InputLabel, makeStyles, MenuItem, Select, Theme
+} from "@material-ui/core";
+import React, { useEffect, useState } from "react";
 import { changeContributorRights } from "../../Actions/CollectionActions";
 import {
-  Button,
-  Avatar,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Select,
-  makeStyles,
-  Theme,
-  createStyles,
-  Grid,
-} from "@material-ui/core";
-import {
-  SharedCollectionData,
-  SharedCollection,
+  SharedCollection, SharedCollectionData
 } from "../../Model/SharedCollection";
 import { UserRights } from "../../Model/User";
 import SharedCollectionStore from "../../Stores/SharedCollectionsStore";
 import DeleteContributorDialog from "./DeleteContributorDialog";
+import SimpleDialog from "./SimpleDialog";
 
 type EditContributorDialogProps = {
   open: boolean;
@@ -40,8 +30,8 @@ export default function EditContributorDialog(
   props: EditContributorDialogProps
 ) {
   const classes = useStyles();
-  const title = "Edit contributor";
-  const description = `You can change contributor permissions or delete this contributor.`;
+  const title = "Edytuj współtwórcę";
+  const description = `Możesz zmienić uprawnienia współtwórcy lub go usunąć.`;
   const [
     sharedCollection,
     setSharedCollection,
