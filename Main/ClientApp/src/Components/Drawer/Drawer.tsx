@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {
-  List,
-  Drawer as MaterialDrawer,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
+  Drawer as MaterialDrawer, List
 } from "@material-ui/core";
-import SettingsIcon from "@material-ui/icons/Settings";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import React, { useEffect, useState } from "react";
+import UsersStore from "../../Stores/UsersStore";
 import MyCollectionsSection from "./MyCollectionsSection";
 import SharedSection from "./SharedSection";
-import UsersStore from "../../Stores/UsersStore";
-import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -51,10 +45,6 @@ export default function Drawer() {
     return () => UsersStore.removeChangeListener(handler);
   }, []);
 
-  const isAdmin =
-    currentUser?.roles.find((role) => role === "Administrator") !== undefined ??
-    false;
-
   return (
     <MaterialDrawer
       className={classes.drawer}
@@ -72,12 +62,6 @@ export default function Drawer() {
         <MyCollectionsSection />
         <SharedSection />
         {/* <SavedSection /> */}
-        {isAdmin && (
-          <ListItem button component={Link} to="/admin">
-            <ListItemIcon children={<SettingsIcon />} />
-            <ListItemText primary="Admin panel" />
-          </ListItem>
-        )}
       </List>
     </MaterialDrawer>
   );
