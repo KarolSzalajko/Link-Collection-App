@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
 import { updateElement } from "../../Actions/ElementActions";
 import { Element, ElementUpdateData } from "../../Model/Element";
 import SimpleDialog from "./SimpleDialog";
@@ -11,8 +11,8 @@ type EditElementDialogProps = {
 };
 
 export default function EditElementDialog(props: EditElementDialogProps) {
-  const title = "Edit element";
-  const description = "Change the name or link of this element.";
+  const title = "Edytuj element";
+  const description = "Zmień nazwę, adres url lub opis tego elementu.";
   let [element, setElement] = useState<Element>(props.element);
   const [inputName, setInputName] = React.useState(props.element.name);
   const [inputUrl, setInputUrl] = React.useState(props.element.link);
@@ -56,7 +56,7 @@ export default function EditElementDialog(props: EditElementDialogProps) {
             autoFocus
             margin="dense"
             id="elementName"
-            label="Element name"
+            label="Nazwa elementu"
             type="email"
             placeholder={element.name}
             fullWidth

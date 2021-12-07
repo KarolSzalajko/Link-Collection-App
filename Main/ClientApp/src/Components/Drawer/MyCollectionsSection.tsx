@@ -1,39 +1,29 @@
-import React, { useState, useEffect } from "react";
+import {
+  Avatar, Divider, List,
+  ListItem, ListItemAvatar, ListItemIcon,
+  ListItemText,
+  Typography
+} from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Typography,
-  Divider,
-  ListItemAvatar,
-  Avatar,
-} from "@material-ui/core";
-import {
-  Lock,
-  Widgets,
-  Public,
-  GroupAdd,
   Delete,
-  Edit,
-  LockOpen,
-  Equalizer,
+  Edit, Equalizer, GroupAdd, Lock, LockOpen, Public, Widgets
 } from "@material-ui/icons";
-import DrawerItem from "./DrawerItem";
-import DrawerItemNested from "./DrawerItemNested";
-import CollectionsStore from "../../Stores/CollectionsStore";
-import SharedCollectionsStore from "../../Stores/SharedCollectionsStore";
-import ListItemAdd from "../ListItemAdd";
-import EditCollectionDialog from "../Dialogs/EditCollectionDialog";
-import EditContributorDialog from "../Dialogs/EditContributorDialog";
-import ShareCollectionDialog from "../Dialogs/ShareCollectionDialog";
-import AddCollectionDialog from "../Dialogs/AddCollectionDialog";
+import React, { useEffect, useState } from "react";
+import { Link, useRouteMatch } from "react-router-dom";
 import { Collection } from "../../Model/Collection";
 import { SharedCollection } from "../../Model/SharedCollection";
+import CollectionsStore from "../../Stores/CollectionsStore";
+import SharedCollectionsStore from "../../Stores/SharedCollectionsStore";
+import AddCollectionDialog from "../Dialogs/AddCollectionDialog";
 import DeleteCollectionDialog from "../Dialogs/DeleteCollectionDialog";
+import EditCollectionDialog from "../Dialogs/EditCollectionDialog";
+import EditContributorDialog from "../Dialogs/EditContributorDialog";
 import MakePublicDialog from "../Dialogs/MakePublicDialog";
-import { Link, useRouteMatch } from "react-router-dom";
+import ShareCollectionDialog from "../Dialogs/ShareCollectionDialog";
+import ListItemAdd from "../ListItemAdd";
+import DrawerItem from "./DrawerItem";
+import DrawerItemNested from "./DrawerItemNested";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -165,7 +155,7 @@ export default function MyCollectionsSection() {
                       <ListItemIcon>
                         <Delete />
                       </ListItemIcon>
-                      <ListItemText primary="Delete" />
+                      <ListItemText primary="Usuń" />
                     </ListItem>
                     <ListItem
                       onClick={() => onUpdateCollectionClick(collection.id)}
@@ -174,7 +164,7 @@ export default function MyCollectionsSection() {
                       <ListItemIcon>
                         <Edit />
                       </ListItemIcon>
-                      <ListItemText primary="Edit" />
+                      <ListItemText primary="Edytuj" />
                     </ListItem>
                     <Divider />
                     <ListItem
@@ -184,7 +174,7 @@ export default function MyCollectionsSection() {
                       <ListItemIcon>
                         <LockOpen />
                       </ListItemIcon>
-                      <ListItemText primary="Get sharable link" />
+                      <ListItemText primary="Kopiuj link do udostępniania" />
                     </ListItem>
 
                     {collection.isPublic && (
@@ -196,7 +186,7 @@ export default function MyCollectionsSection() {
                         <ListItemIcon>
                           <Equalizer />
                         </ListItemIcon>
-                        <ListItemText primary="Stats" />
+                        <ListItemText primary="Statystyki" />
                       </ListItem>
                     )}
 
@@ -208,7 +198,7 @@ export default function MyCollectionsSection() {
                       <ListItemIcon>
                         <GroupAdd />
                       </ListItemIcon>
-                      <ListItemText primary="Share" />
+                      <ListItemText primary="Udostępnij" />
                     </ListItem>
                     {hasSharedCollections(collection.id) && <Divider />}
                     {contributorsOfSharedCollections
@@ -237,7 +227,7 @@ export default function MyCollectionsSection() {
               onClickHandler={() => {
                 toggleAddElementDialogOpen();
               }}
-              text="Add collection"
+              text="Dodaj kolekcję"
               className={classes.addItem}
             />
           </List>

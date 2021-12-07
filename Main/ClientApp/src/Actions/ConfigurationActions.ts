@@ -1,7 +1,7 @@
-import Dispatcher from "../Infrastructure/Dispatcher";
 import ConfigurationApi from "../Api/ConfigurationApi";
-import ActionTypes from "./ActionTypes";
+import Dispatcher from "../Infrastructure/Dispatcher";
 import { Configuration } from "../Model/Configuration";
+import ActionTypes from "./ActionTypes";
 
 export async function loadConfiguration() {
   let configuration = await ConfigurationApi.getConfiguration();
@@ -14,5 +14,5 @@ export async function loadConfiguration() {
 export async function updateConfiguration(config: Configuration) {
   let success = await ConfigurationApi.updateConfiguration(config);
   if (success) loadConfiguration();
-  else console.error("Could not update configuration");
+  else console.error("Nie można zaktualizować konfiguracji");
 }

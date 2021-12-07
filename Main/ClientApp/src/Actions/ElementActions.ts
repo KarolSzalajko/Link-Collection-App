@@ -28,7 +28,7 @@ export async function updateElement(
     loadCollections();
     loadSharedCollections();
   } else {
-    console.error("Could not update element");
+    console.error("Nie można zaktualizować elementu");
   }
 }
 
@@ -38,6 +38,6 @@ export async function deleteElement(collectionId: number, elementId: number) {
     loadCollections();
     loadSharedCollections();
   } else {
-    console.error("Could not delete element");
+    console.error("Nie można usunąć elementu");
   }
 }

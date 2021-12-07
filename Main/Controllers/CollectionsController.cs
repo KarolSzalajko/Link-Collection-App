@@ -55,7 +55,7 @@ namespace LinkCollectionApp.Controllers
         .Collections.Count;
 
       if (userCollectionCount >= maxCollectionPerUser)
-        return BadRequest("Could not add the collection: Reached maximum number of collections");
+        return BadRequest("Nie można dodać kolekcji: Osiągnięto maksymalny limit kolekcji");
 
       var collection = new Collection
       {

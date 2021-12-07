@@ -1,22 +1,13 @@
-import React, { useState, ChangeEvent, useEffect } from "react";
-import SimpleDialog from "./SimpleDialog";
-import { shareCollection } from "../../Actions/CollectionActions";
 import {
-  Button,
-  TextField,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Select,
-  makeStyles,
-  Theme,
-  createStyles,
-  Grid,
+  Button, createStyles, FormControl, Grid, InputLabel, makeStyles, MenuItem, Select, TextField, Theme
 } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { shareCollection } from "../../Actions/CollectionActions";
 import { SharedCollectionData } from "../../Model/SharedCollection";
 import { User, UserRights } from "../../Model/User";
 import UsersStore from "../../Stores/UsersStore";
+import SimpleDialog from "./SimpleDialog";
 
 type ShareCollectionDialogProps = {
   open: boolean;
@@ -36,9 +27,9 @@ export default function ShareCollectionDialog(
   props: ShareCollectionDialogProps
 ) {
   const classes = useStyles();
-  const title = "Share collection";
-  const description = `You can share this collection with others for them to see and edit. 
-    After sharing, the collection will be visible in their "Shared with me" section.`;
+  const title = "Udostępnij kolekcję";
+  const description = `Możesz udostępnić tą kolekcję innym aby mogli ją edytować. 
+    Po udostępnieniu, kolekcja będzie widoczna w ich sekcji "Udostępnione dla mnie".`;
 
   const createSharedCollectionData = () => {
     return {
