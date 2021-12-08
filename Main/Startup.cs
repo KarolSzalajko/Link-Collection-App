@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 using LinkCollectionApp.Data;
 using LinkCollectionApp.Infrastructure;
@@ -120,6 +121,7 @@ namespace LinkCollectionApp
         spa.Options.SourcePath = "ClientApp";
         if (env.IsDevelopment())
         {
+          spa.Options.StartupTimeout = TimeSpan.FromMinutes(5);
           spa.UseReactDevelopmentServer(npmScript: "start");
         }
       });
