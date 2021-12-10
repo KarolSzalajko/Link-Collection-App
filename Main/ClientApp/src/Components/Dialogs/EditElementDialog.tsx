@@ -16,11 +16,13 @@ export default function EditElementDialog(props: EditElementDialogProps) {
   let [element, setElement] = useState<Element>(props.element);
   const [inputName, setInputName] = React.useState(props.element.name);
   const [inputUrl, setInputUrl] = React.useState(props.element.link);
+  const [inputDescription, setInputDescription] = React.useState(props.element.link);
 
   const createElementUpdateData = () => {
     return {
       name: inputName.length === 0 ? element?.name : inputName,
       link: inputUrl.length === 0 ? element?.link : inputUrl,
+      description: inputDescription.length === 0 ? element?.description : inputDescription,
     } as ElementUpdateData;
   };
 
@@ -38,9 +40,14 @@ export default function EditElementDialog(props: EditElementDialogProps) {
     setInputUrl(newInput);
   };
 
+  const handleInputDescriptionChange = (newInput: string) => {
+    setInputDescription(newInput);
+  };
+
   const saveChangesEnabled =
     (inputName.length !== 0 && inputName !== element.name) ||
-    (inputUrl.length !== 0 && inputUrl !== element.link);
+    (inputUrl.length !== 0 && inputUrl !== element.link) ||
+    (inputDescription.length !== 0 && inputDescription !== element.description);
 
   return (
     <SimpleDialog
@@ -69,6 +76,16 @@ export default function EditElementDialog(props: EditElementDialogProps) {
             label="Url"
             type="email"
             placeholder={element.link}
+            fullWidth
+          />
+          <TextField
+            defaultValue={element.description}
+            onChange={(e) => handleInputDescriptionChange(e.target.value)}
+            margin="dense"
+            id="elementDescription"
+            label="Opis"
+            type="text"
+            placeholder={element.description}
             fullWidth
           />
         </>
