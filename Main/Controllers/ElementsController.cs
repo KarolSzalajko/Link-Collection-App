@@ -115,8 +115,7 @@ namespace LinkCollectionApp.Controllers
         element.Name = updateData.Name;
       if (updateData.Link.IsNullOrEmpty() == false)
         element.Link = updateData.Link;
-      if (updateData.Description.IsNullOrEmpty() == false)
-        element.Description = updateData.Description;
+      element.Description = updateData.Description;
       _dbContext.SaveChanges();
       return Ok();
     }
