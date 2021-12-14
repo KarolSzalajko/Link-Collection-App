@@ -49,6 +49,7 @@ namespace LinkCollectionApp.Controllers
       {
         Link = elementData.Link, 
         Name = elementData.Name, 
+        Description = elementData.Description,
         CollectionId = elementData.CollectionId,
         OwnerId = userId,
         Sequence = lastSequenceInCollection + 1 ?? 1
@@ -114,6 +115,7 @@ namespace LinkCollectionApp.Controllers
         element.Name = updateData.Name;
       if (updateData.Link.IsNullOrEmpty() == false)
         element.Link = updateData.Link;
+      element.Description = updateData.Description;
       _dbContext.SaveChanges();
       return Ok();
     }

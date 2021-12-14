@@ -234,3 +234,5 @@ _Pvt_Extensions
 
 # EF Core migration history
 **/*ModelSnapshot.cs
+
+.idea

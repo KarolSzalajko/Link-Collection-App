@@ -28,6 +28,7 @@ export default function SharedCollectionView(props: SharedCollectionViewProps) {
     sharedCollection,
     setSharedCollection,
   ] = useState<SharedCollection | null>(null);
+  debugger;
   const [addElementDialogOpen, setAddElementDialogOpen] = React.useState(false);
 
   const toggleAddElementDialogOpen = () => {
@@ -53,7 +54,7 @@ export default function SharedCollectionView(props: SharedCollectionViewProps) {
 
   return (
     <>
-      <BaseCollectionView collection={sharedCollection?.collection ?? null}>
+      <BaseCollectionView collection={sharedCollection?.collection ?? null} hasEditRights={sharedCollection?.editRights}>
         {sharedCollection?.editRights && (
           <Fab
             color="primary"

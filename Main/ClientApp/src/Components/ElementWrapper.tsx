@@ -8,6 +8,7 @@ import YoutubeElement from "./YoutubeElement";
 
 type ElementWrapperProps = {
   element: Element;
+  canBeModified?: boolean;
 };
 
 export default function ElementWrapper(props: ElementWrapperProps) {
@@ -16,10 +17,10 @@ export default function ElementWrapper(props: ElementWrapperProps) {
 
   switch (elementType) {
     case ElementType.BASIC:
-      return <ElementView element={element} />;
+      return <ElementView element={element} canBeModified={props.canBeModified}/>;
     case ElementType.IMAGE:
-      return <ImageElement element={element} />;
+      return <ImageElement element={element} canBeModified={props.canBeModified}/>;
     case ElementType.YOUTUBE:
-      return <YoutubeElement element={element} />;
+      return <YoutubeElement element={element} canBeModified={props.canBeModified}/>;
   }
 }

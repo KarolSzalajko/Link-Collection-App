@@ -45,12 +45,8 @@ export default function EditContributorDialog(
     return {
       collectionId: props.collectionId,
       userId: sharedCollection?.user.id,
-      editRights: selectedUserRights === UserRights.EditRights,
+      editRights: !!UserRights.ViewRights,
     } as SharedCollectionData;
-  };
-
-  const onUserRightsChange = (event: React.ChangeEvent<{ value: any }>) => {
-    setSelectedUserRights(event.target.value);
   };
 
   useEffect(() => {
@@ -95,38 +91,10 @@ export default function EditContributorDialog(
             <Grid item xs={7}>
               {sharedCollection?.user.name}
             </Grid>
-            <Grid item>
-              <FormControl>
-                <InputLabel>Permissions</InputLabel>
-                <Select
-                  value={selectedUserRights}
-                  onChange={onUserRightsChange}
-                >
-                  <MenuItem value={UserRights.ViewRights}>View Rights</MenuItem>
-                  <MenuItem value={UserRights.EditRights}>Edit Rights</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
           </Grid>
         }
         actions={
           <>
-            <Button
-              disabled={
-                (sharedCollection?.editRights &&
-                  selectedUserRights === UserRights.EditRights) ||
-                (!sharedCollection?.editRights &&
-                  selectedUserRights === UserRights.ViewRights)
-              }
-              onClick={() => {
-                changeContributorRights(createSharedCollectionData());
-                props.toggleDialogOpen();
-              }}
-              color="primary"
-              autoFocus
-            >
-              Change
-            </Button>
             <Button
               onClick={() => {
                 setDeleteDialogOpen(true);

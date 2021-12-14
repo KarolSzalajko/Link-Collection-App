@@ -8,6 +8,7 @@ const youtubeVideoIdRegex = /(?:youtube.)\w+(?:\/watch?)\?v=(\w+)/;
 
 interface YoutubeElementProps {
   element: Element;
+  canBeModified?: boolean;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -44,7 +45,7 @@ export default function YoutubeElement(props: YoutubeElementProps) {
   } as Options;
 
   return (
-    <ElementView element={props.element}>
+    <ElementView element={props.element} canBeModified={props.canBeModified}>
       {videoId && (
         <div className={classes.root}>
           <Youtube

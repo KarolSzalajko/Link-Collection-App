@@ -13,6 +13,7 @@ type AddElementDialogProps = {
 export default function AddElementDialog(props: AddElementDialogProps) {
   const [name, setName] = React.useState("");
   const [url, setUrl] = React.useState("");
+  const [description, setDescription] = React.useState("");
 
   const handleNameChange = (newName: string) => {
     setName(newName);
@@ -22,11 +23,16 @@ export default function AddElementDialog(props: AddElementDialogProps) {
     setUrl(newUrl);
   };
 
-  const createElementData = (name: string, url: string) => {
+  const handleDescriptionChange = (newDescription: string) => {
+    setDescription(newDescription);
+  };
+
+  const createElementData = (name: string, url: string, description: string) => {
     return {
       collectionId: props.collectionId,
       name: name,
       link: url,
+      description: description
     } as ElementCreationData;
   };
 
@@ -45,26 +51,36 @@ export default function AddElementDialog(props: AddElementDialogProps) {
             id="elementName"
             label="Element name"
             type="email"
-            placeholder="MójElement"
+            placeholder="Mój element"
             fullWidth
           />
           <TextField
             onChange={(e) => handleUrlChange(e.target.value)}
             autoFocus
             margin="dense"
-            id="elementDescription"
+            id="elementUrl"
             label="Url"
             type="email"
             placeholder="Link do mojego elementu"
+            fullWidth
+          />
+          <TextField
+            onChange={(e) => handleDescriptionChange(e.target.value)}
+            autoFocus
+            margin="dense"
+            id="elementDescription"
+            label="Opis"
+            type="text"
+            placeholder="Opis"
             fullWidth
           />
         </>
       }
       actions={
         <Button
-          disabled={url.length === 0}
+          disabled={url.length === 0 || name.length === 0}
           onClick={() => {
-            addElement(createElementData(name, url));
+            addElement(createElementData(name, url, description));
             props.toggleDialogOpen();
           }}
           color="primary"

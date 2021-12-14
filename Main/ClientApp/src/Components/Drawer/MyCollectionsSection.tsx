@@ -140,6 +140,7 @@ export default function MyCollectionsSection() {
                 title={collection.name}
                 icon={collection.isPublic ? <Public /> : <Lock />}
                 link={`/collections/${collection.id}`}
+                canBeModified={true}
                 menuItems={
                   <div>
                     <Typography
