@@ -76,7 +76,7 @@ export async function changeContributorRights(
   if (success) {
     loadSharedCollections();
     loadSharedCollectionsRelatedToCollections();
-  } else console.error("Nie można zmienić uprawnień współtwórcy");
+  } else console.error("Nie można zmienić uprawnień użytkownika");
 }
 
 export async function deleteContributorOfCollection(

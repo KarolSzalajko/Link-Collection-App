@@ -147,7 +147,7 @@ export default function MyCollectionsSection() {
                       variant="h5"
                       className={classes.collectionSettingsMenuTitle}
                     >
-                      Settings
+                      Ustawienia
                     </Typography>
                     <ListItem
                       onClick={() => onDeleteCollectionClick(collection.id)}

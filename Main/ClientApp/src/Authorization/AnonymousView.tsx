@@ -10,7 +10,7 @@ type AnonymousViewProps = {
 export default function AnonymousView(props: AnonymousViewProps) {
   return (
     <Grid
-      style={{ width: 200 }}
+      style={{ width: 300 }}
       container
       direction="row"
       justify="flex-end"
@@ -21,7 +21,7 @@ export default function AnonymousView(props: AnonymousViewProps) {
           to={props.registerPath}
           style={{ color: "white", textDecoration: "none" }}
         >
-          Register
+          Zarejestruj się
         </Link>
       </Grid>
       <Grid item>
@@ -29,7 +29,7 @@ export default function AnonymousView(props: AnonymousViewProps) {
           to={props.loginPath}
           style={{ color: "white", textDecoration: "none" }}
         >
-          Login
+          Zaloguj się
         </Link>
       </Grid>
     </Grid>

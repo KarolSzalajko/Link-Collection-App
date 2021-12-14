@@ -42,7 +42,7 @@ export default function SimpleDialog(props: SimpleDialogProps) {
             }}
             color="primary"
           >
-            Cancel
+            Anuluj
           </Button>
           {props.actions}
         </MuiThemeProvider>

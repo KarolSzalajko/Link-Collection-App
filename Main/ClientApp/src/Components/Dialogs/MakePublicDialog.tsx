@@ -83,7 +83,7 @@ export default function MakePublicDialog(props: MakePublicDialogProps) {
           {sharableLink}
           {sharableLink !== "" && (
             <Button color="primary" onClick={copyToClipboard}>
-              Copy
+              Kopiuj
             </Button>
           )}
         </>
@@ -92,7 +92,7 @@ export default function MakePublicDialog(props: MakePublicDialogProps) {
         <div className={classes.wrapper}>
           {sharableLink === "" && (
             <Button color="primary" disabled={loading} onClick={onConfirmClick}>
-              Confirm
+              Potwierdź
             </Button>
           )}
           {loading && (

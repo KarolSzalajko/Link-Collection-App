@@ -41,7 +41,7 @@ export default function AuthenticatedView(props: AuthenticatedViewProps) {
           to={props.profilePath}
           style={{ color: "white", textDecoration: "none" }}
         >
-          Hello {props.userName}
+          Cześć, {props.userName}
         </Link>
         {/*
         // @ts-ignore */}
