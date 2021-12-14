@@ -32,7 +32,8 @@ export default function SharedSection() {
               title={sharedCollection.collection.name}
               link={`/collections/shared/${sharedCollection.collection.id}`}
               key={sharedCollection.collection.id}
-              icon={sharedCollection.editRights ? <Edit /> : <Visibility />}
+              icon={<Visibility />}
+              canBeModified={sharedCollection.editRights}
             />
           ))}
         </List>

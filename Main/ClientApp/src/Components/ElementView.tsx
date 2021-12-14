@@ -57,6 +57,7 @@ const useStyles = makeStyles((theme: Theme) =>
 type ElementViewProps = {
   element: ElementModel;
   children?: ReactNode;
+  canBeModified?: boolean;
 };
 
 export default function ElementView(props: ElementViewProps) {
@@ -123,8 +124,9 @@ export default function ElementView(props: ElementViewProps) {
             title={displayedName}
             subheader={elementUrl}
             onClick={() => OpenInNewTab(elementUrl)}
+            style={{wordBreak: "break-word"}}
             action={
-              <IconButton
+              props.canBeModified &&<IconButton
                 style={{margin: "12px 12px 0px 0px"}}
                 aria-label="Ustawienia"
                 onClick={(e) => {
@@ -162,7 +164,7 @@ export default function ElementView(props: ElementViewProps) {
             {props.children}
           </CardContent> : <></>}
       </Card>
-      <Menu
+      {props.canBeModified && <Menu
         open={anchorEl !== null}
         anchorEl={anchorEl}
         onClose={onMenuClose}
@@ -175,29 +177,29 @@ export default function ElementView(props: ElementViewProps) {
         <div>
           <ListItem onClick={() => setDeleteDialogOpen(true)} button>
             <ListItemIcon>
-              <Delete />
+              <Delete/>
             </ListItemIcon>
-            <ListItemText primary="Usuń" />
+            <ListItemText primary="Usuń"/>
           </ListItem>
           <ListItem onClick={() => setEditDialogOpen(true)} button>
             <ListItemIcon>
-              <Edit />
+              <Edit/>
             </ListItemIcon>
-            <ListItemText primary="Edytuj" />
+            <ListItemText primary="Edytuj"/>
           </ListItem>
         </div>
-      </Menu>
-      <EditElementDialog
+      </Menu>}
+        <EditElementDialog
         open={editDialogOpen}
         toggleDialogOpen={() => setEditDialogOpen(!editDialogOpen)}
         element={props.element}
-      />
-      <DeleteElementDialog
+        />
+        <DeleteElementDialog
         open={deleteDialogOpen}
         toggleDialogOpen={() => setDeleteDialogOpen(!deleteDialogOpen)}
         collectionId={props.element.collectionId}
         elementId={props.element.id}
-      />
+        />
     </>
   );
 }

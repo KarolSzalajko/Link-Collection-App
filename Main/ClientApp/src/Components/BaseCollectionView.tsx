@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
 type BaseCollectionViewProps = {
   collection: Collection | null;
   children?: ReactNode;
+  hasEditRights?: boolean;
 };
 
 export default function BaseCollectionView(props: BaseCollectionViewProps) {
@@ -33,12 +34,6 @@ export default function BaseCollectionView(props: BaseCollectionViewProps) {
   let [sortedAscending, setSortedAscending] = useState(true);
   let [selectedHosts, setSelectedHosts] = useState(allHosts);
   let [elementOrderFunction, setElementOrderFunction] = useState(sortDefault);
-  let columnCountCookieContent = Cookies.get("columnCount");
-  let columns =
-    columnCountCookieContent === undefined
-      ? 3
-      : parseInt(columnCountCookieContent);
-  let [columnCount, setColumnCount] = useState(columns);
 
   useEffect(() => {
     let elems = props.collection?.elements ?? [];
@@ -57,8 +52,6 @@ export default function BaseCollectionView(props: BaseCollectionViewProps) {
     displayedElements.reverse();
   }
 
-  let columnRange = Array.from({ length: columnCount }, (x, i) => i);
-
   return (
     <Paper elevation={0} className={classes.root}>
       <ElementControlMenu
@@ -68,34 +61,33 @@ export default function BaseCollectionView(props: BaseCollectionViewProps) {
           setElementOrderFunction(orderFunc)
         }
         onSortingDirectionChange={(isAsc) => setSortedAscending(isAsc)}
-        onColumnCountChange={(newColCount) => setColumnCount(newColCount)}
       />
       <Divider />
-      <GridList cols={columnCount} cellHeight="auto" spacing={30}>
-        {columnRange.map((i) => {
-          return GridColumnList(
-            displayedElements.filter((el, idx) => idx % columnCount === i),
-            i
-          );
-        })}
+      <GridList cols={2} cellHeight="auto" spacing={30}>
+        <GridListTile key={0}>
+          <GridList cols={1} cellHeight="auto" spacing={20}>
+            {displayedElements.filter((el, idx) => idx % 2 === 0).map((element) => {
+              return (
+                <GridListTile key={element.id}>
+                  <ElementWrapper element={element} canBeModified={props.hasEditRights} />
+                </GridListTile>
+              );
+            })}
+          </GridList>
+        </GridListTile>
+        <GridListTile key={1}>
+          <GridList cols={1} cellHeight="auto" spacing={20}>
+            {displayedElements.filter((el, idx) => idx % 2 === 1).map((element) => {
+              return (
+                <GridListTile key={element.id}>
+                  <ElementWrapper element={element} canBeModified={props.hasEditRights} />
+                </GridListTile>
+              );
+            })}
+          </GridList>
+        </GridListTile>
       </GridList>
       {props.children}
     </Paper>
-  );
-}
-
-function GridColumnList(elements: Element[], key: number) {
-  return (
-    <GridListTile key={key}>
-      <GridList cols={1} cellHeight="auto" spacing={20}>
-        {elements.map((element) => {
-          return (
-            <GridListTile key={element.id}>
-              <ElementWrapper element={element} />
-            </GridListTile>
-          );
-        })}
-      </GridList>
-    </GridListTile>
   );
 }
