@@ -1,4 +1,4 @@
-export const ApplicationName = "LinkCollectionApp";
+export const ApplicationName = "Schowek";
 
 export const QueryParameterNames = {
   ReturnUrl: "returnUrl",
@@ -23,7 +23,7 @@ const prefix = "/authentication";
 
 export const ApplicationPaths = {
   DefaultLoginRedirectPath: "/collections",
-  ApiAuthorizationClientConfigurationUrl: `/_configuration/${ApplicationName}`,
+  ApiAuthorizationClientConfigurationUrl: `/_configuration/LinkCollectionApp`,
   ApiAuthorizationPrefix: prefix,
   Login: `${prefix}/${LoginActions.Login}`,
   LoginFailed: `${prefix}/${LoginActions.LoginFailed}`,

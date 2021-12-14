@@ -28,7 +28,7 @@ export default function ShareCollectionDialog(
 ) {
   const classes = useStyles();
   const title = "Udostępnij kolekcję";
-  const description = `Możesz udostępnić tą kolekcję innym aby mogli ją edytować. 
+  const description = `Możesz udostępnić tę kolekcję innym użytkownikom, aby mogli ją przeglądać.
     Po udostępnieniu, kolekcja będzie widoczna w ich sekcji "Udostępnione dla mnie".`;
 
   const createSharedCollectionData = () => {
@@ -67,7 +67,7 @@ export default function ShareCollectionDialog(
           autoSelect
           value={selectedUser}
           onChange={onUserInputChange}
-          renderInput={(params) => <TextField {...params} label="User" />}
+          renderInput={(params) => <TextField {...params} label="Użytkownik" />}
         />
       }
       actions={
@@ -80,7 +80,7 @@ export default function ShareCollectionDialog(
           color="primary"
           autoFocus
         >
-          Share
+          Udostępnij
         </Button>
       }
     ></SimpleDialog>

@@ -32,9 +32,9 @@ export default function AddCollectionDialog(props: AddCollectionDialogProps) {
           autoFocus
           margin="dense"
           id="collectionName"
-          label="Collection name"
+          label="Nazwa kolekcji"
           type="email"
-          placeholder="MojaKolekcja"
+          placeholder="Moja kolekcja"
           fullWidth
         />
       }
@@ -48,7 +48,7 @@ export default function AddCollectionDialog(props: AddCollectionDialogProps) {
           color="primary"
           autoFocus
         >
-          Add
+          Dodaj
         </Button>
       }
     />

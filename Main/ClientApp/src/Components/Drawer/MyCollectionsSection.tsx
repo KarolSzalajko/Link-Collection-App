@@ -130,7 +130,7 @@ export default function MyCollectionsSection() {
   return (
     <>
       <DrawerItem
-        title="My collections"
+        title="Moje kolekcje"
         icon={<Widgets />}
         nestedList={
           <List component="div" disablePadding>
@@ -147,7 +147,7 @@ export default function MyCollectionsSection() {
                       variant="h5"
                       className={classes.collectionSettingsMenuTitle}
                     >
-                      Settings
+                      Ustawienia
                     </Typography>
                     <ListItem
                       onClick={() => onDeleteCollectionClick(collection.id)}

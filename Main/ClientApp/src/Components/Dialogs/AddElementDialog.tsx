@@ -49,7 +49,7 @@ export default function AddElementDialog(props: AddElementDialogProps) {
             autoFocus
             margin="dense"
             id="elementName"
-            label="Element name"
+            label="Nazwa"
             type="email"
             placeholder="Mój element"
             fullWidth
@@ -86,7 +86,7 @@ export default function AddElementDialog(props: AddElementDialogProps) {
           color="primary"
           autoFocus
         >
-          Add
+          Dodaj
         </Button>
       }
     />

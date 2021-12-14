@@ -107,7 +107,7 @@ export default function EditElementDialog(props: EditElementDialogProps) {
           color="primary"
           autoFocus
         >
-          Save changes
+          Zapisz
         </Button>
       }
     />

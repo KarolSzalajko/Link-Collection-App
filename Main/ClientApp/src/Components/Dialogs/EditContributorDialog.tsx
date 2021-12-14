@@ -30,24 +30,13 @@ export default function EditContributorDialog(
   props: EditContributorDialogProps
 ) {
   const classes = useStyles();
-  const title = "Edytuj współtwórcę";
-  const description = `Możesz zmienić uprawnienia współtwórcy lub go usunąć.`;
+  const title = "Edytuj dostęp do kolekcji";
+  const description = `Możesz usunąć uprawnienia dotyczące tego użytkownika.`;
   const [
     sharedCollection,
     setSharedCollection,
   ] = useState<SharedCollection | null>(null);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
-  const [selectedUserRights, setSelectedUserRights] = useState(
-    UserRights.ViewRights
-  );
-
-  const createSharedCollectionData = () => {
-    return {
-      collectionId: props.collectionId,
-      userId: sharedCollection?.user.id,
-      editRights: !!UserRights.ViewRights,
-    } as SharedCollectionData;
-  };
 
   useEffect(() => {
     const changeHandler = () => {
@@ -56,9 +45,6 @@ export default function EditContributorDialog(
         props.userId
       );
       setSharedCollection(sc);
-      setSelectedUserRights(
-        sc?.editRights === true ? UserRights.EditRights : UserRights.ViewRights
-      );
     };
 
     changeHandler();
@@ -103,7 +89,7 @@ export default function EditContributorDialog(
               color="secondary"
               autoFocus
             >
-              Delete
+              Usuń
             </Button>
           </>
         }

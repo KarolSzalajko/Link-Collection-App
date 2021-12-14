@@ -129,7 +129,7 @@ export function ElementControlMenu(props: ElementControlMenuProps) {
         })}
       </Grid>
       <Grid item style={{ paddingRight: "0px" }}>
-        <Typography id="select-label">Sorting</Typography>
+        <Typography id="select-label">Sortuj</Typography>
         <Select
           disableUnderline
           value={sortingOption.key}

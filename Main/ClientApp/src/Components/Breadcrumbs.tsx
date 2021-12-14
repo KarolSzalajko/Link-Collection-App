@@ -12,6 +12,11 @@ export default function Breadcrumbs() {
     <Route>
       {({ location }) => {
         const pathnames = location.pathname.split("/").filter((x) => x);
+        pathnames[0] = "kolekcje";
+        
+        const sharedIndex = pathnames.indexOf("shared");
+        if (sharedIndex !== -1)
+          pathnames[sharedIndex] = "udostępnione";
 
         return (
           <MaterialBreadcrumbs
@@ -33,7 +38,7 @@ export default function Breadcrumbs() {
               const isNumber = !isNaN(Number(value));
 
               return (
-                <Button
+                <Button disabled
                   style={{ color: "white" }}
                   component={Link}
                   to={to}

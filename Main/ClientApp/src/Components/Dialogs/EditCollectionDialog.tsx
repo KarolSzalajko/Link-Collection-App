@@ -67,7 +67,7 @@ export default function EditCollectionDialog(props: EditCollectionDialogProps) {
           color="primary"
           autoFocus
         >
-          Save changes
+          Zapisz
         </Button>
       }
     />
