@@ -31,6 +31,6 @@ export default function PublicCollectionView(props: PublicCollectionViewProps) {
   ) : collection === null ? (
     <PanelWideMessage text="Kolekcja nie istnieje lub jest prywatna" />
   ) : (
-    <BaseCollectionView collection={collection} />
+    <BaseCollectionView collection={collection} hasEditRights={false}/>
   );
 }

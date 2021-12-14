@@ -46,7 +46,7 @@ export default function CollectionView(props: CollectionViewProps) {
 
   return (
     <>
-      <BaseCollectionView collection={collection} />
+      <BaseCollectionView collection={collection} hasEditRights={true}/>
       <AddElementDialog
         toggleDialogOpen={toggleAddElementDialogOpen}
         open={dialogOpen}

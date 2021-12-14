@@ -18,12 +18,13 @@ const useStyles = makeStyles((theme: Theme) =>
 
 type ImageElementProps = {
   element: Element;
+  canBeModified?: boolean;
 };
 
 export default function ImageElement(props: ImageElementProps) {
   const classes = useStyles();
   return (
-    <ElementView element={props.element}>
+    <ElementView element={props.element} canBeModified={props.canBeModified}>
       <img src={props.element.link} alt="" className={classes.image} />
     </ElementView>
   );

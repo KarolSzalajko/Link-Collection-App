@@ -28,6 +28,7 @@ type DrawerItemNestedProps = {
   icon?: ReactElement;
   menuItems?: ReactElement;
   link: string;
+  canBeModified: boolean;
 };
 
 export default function DrawerItemNested(props: DrawerItemNestedProps) {
@@ -59,13 +60,13 @@ export default function DrawerItemNested(props: DrawerItemNestedProps) {
           <ListItemIcon children={<Clear style={{ visibility: "hidden" }} />} />
         )}
         <ListItemText primary={props.title} />
-        <ListItemSecondaryAction>
+        {props.canBeModified && <ListItemSecondaryAction>
           {/*
           // @ts-ignore */}
           <IconButton color="inherit" onClick={onMenuOpen}>
             <MoreVert />
           </IconButton>
-        </ListItemSecondaryAction>
+        </ListItemSecondaryAction>}
       </ListItem>
       <Menu
         open={anchorEl !== null}

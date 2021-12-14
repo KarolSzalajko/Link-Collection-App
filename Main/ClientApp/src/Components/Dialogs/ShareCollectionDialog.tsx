@@ -35,7 +35,7 @@ export default function ShareCollectionDialog(
     return {
       collectionId: props.collectionId,
       userId: selectedUser!.id,
-      editRights: selectedUserRights === UserRights.EditRights,
+      editRights: !!UserRights.ViewRights,
     } as SharedCollectionData;
   };
 
@@ -53,10 +53,6 @@ export default function ShareCollectionDialog(
     setSelectedUser(newUser);
   };
 
-  const [selectedUserRights, setUserRights] = useState(UserRights.ViewRights);
-  const onUserRightsChange = (event: React.ChangeEvent<{ value: any }>) => {
-    setUserRights(event.target.value);
-  };
   return (
     <SimpleDialog
       open={props.open}
@@ -64,28 +60,15 @@ export default function ShareCollectionDialog(
       title={title}
       description={description}
       content={
-        <Grid container spacing={3} className={classes.root}>
-          <Grid item xs={8}>
-            <Autocomplete
-              options={users}
-              getOptionLabel={(user) => user.email}
-              id="auto-select"
-              autoSelect
-              value={selectedUser}
-              onChange={onUserInputChange}
-              renderInput={(params) => <TextField {...params} label="User" />}
-            />
-          </Grid>
-          <Grid item xs={4}>
-            <FormControl>
-              <InputLabel>Permissions</InputLabel>
-              <Select value={selectedUserRights} onChange={onUserRightsChange}>
-                <MenuItem value={UserRights.ViewRights}>View Rights</MenuItem>
-                <MenuItem value={UserRights.EditRights}>Edit Rights</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-        </Grid>
+        <Autocomplete
+          options={users}
+          getOptionLabel={(user) => user.email}
+          id="auto-select"
+          autoSelect
+          value={selectedUser}
+          onChange={onUserInputChange}
+          renderInput={(params) => <TextField {...params} label="User" />}
+        />
       }
       actions={
         <Button

@@ -23,7 +23,6 @@ type SortingOption = {
 
 interface ElementControlMenuProps {
   hosts: string[];
-  onColumnCountChange: (newColumnCount: number) => void;
   onHostFilterChange: (newHosts: string[]) => void;
   onSortingOptionChange: (newOrderFunc: ElementOrderFunc) => void;
   onSortingDirectionChange: (isAscending: boolean) => void;
@@ -33,10 +32,6 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     chip: {
       margin: "0px 5px 20px 5px",
-    },
-    slider: {
-      padding: "15px 0px 15px 0px",
-      width: "150px",
     },
     sortArrow: {
       padding: "0px",
@@ -115,14 +110,6 @@ export function ElementControlMenu(props: ElementControlMenuProps) {
     setSortedAscending(!sortedAscending);
   };
 
-  let [columnCount, setColumnCount] = useCookie("columnCount", 3);
-  const onColumnCountChange = (event: any, newValue: number | number[]) => {
-    let val = newValue as number;
-    setColumnCount(val);
-    props.onColumnCountChange(val);
-  };
-  // props.onColumnCountChange(columnCount);
-
   //TODO: Layout
   return (
     <Grid container spacing={2}>
@@ -140,21 +127,6 @@ export function ElementControlMenu(props: ElementControlMenuProps) {
             />
           );
         })}
-      </Grid>
-      <Grid item>
-        <Typography id="continuous-slider">Columns</Typography>
-        <Slider
-          marks
-          value={columnCount}
-          step={1}
-          min={1}
-          max={5}
-          getAriaValueText={(v) => v.toString()}
-          aria-labelledby="discrete-slider"
-          valueLabelDisplay="auto"
-          className={classes.slider}
-          onChange={onColumnCountChange}
-        />
       </Grid>
       <Grid item style={{ paddingRight: "0px" }}>
         <Typography id="select-label">Sorting</Typography>
