@@ -59,10 +59,12 @@ export default function SharedCollectionView(props: SharedCollectionViewProps) {
           <Fab
             color="primary"
             aria-label="add"
+            variant="extended"
             className={classes.fab}
             onClick={toggleAddElementDialogOpen}
           >
             <AddIcon />
+            Dodaj element
           </Fab>
         )}
       </BaseCollectionView>

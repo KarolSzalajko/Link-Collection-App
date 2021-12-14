@@ -56,9 +56,11 @@ export default function CollectionView(props: CollectionViewProps) {
         color="primary"
         aria-label="add"
         className={classes.fab}
+        variant="extended"
         onClick={toggleAddElementDialogOpen}
       >
         <AddIcon />
+        Dodaj element
       </Fab>
     </>
   );
