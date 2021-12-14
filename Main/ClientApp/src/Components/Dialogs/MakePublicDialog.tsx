@@ -47,7 +47,6 @@ export default function MakePublicDialog(props: MakePublicDialogProps) {
   const onConfirmClick = async () => {
     setLoading(true);
     let ok = await CollectionsApi.makePublic(props.collectionId);
-    debugger;
     if (ok) {
       setSharableLink(
         `https://${window.location.host}/public/${props.collectionId}`

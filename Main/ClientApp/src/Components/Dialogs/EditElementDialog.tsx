@@ -83,7 +83,7 @@ export default function EditElementDialog(props: EditElementDialogProps) {
             defaultValue={element.description}
             onChange={(e) => handleInputDescriptionChange(e.target.value)}
             multiline
-            rows={5}
+            rowsMax={Infinity}
             margin="dense"
             id="elementDescription"
             label="Opis"

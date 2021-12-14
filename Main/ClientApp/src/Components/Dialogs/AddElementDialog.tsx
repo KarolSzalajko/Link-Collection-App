@@ -40,7 +40,7 @@ export default function AddElementDialog(props: AddElementDialogProps) {
     <SimpleDialog
       open={props.open}
       toggleDialogOpen={props.toggleDialogOpen}
-      title="Dodaj Element"
+      title="Dodaj element"
       description="Wprowadź nazwę, adres url i opis nowego elementu. Możesz później zmienić ustawienia dla tego elementu."
       content={
         <>
@@ -66,6 +66,8 @@ export default function AddElementDialog(props: AddElementDialogProps) {
           />
           <TextField
             onChange={(e) => handleDescriptionChange(e.target.value)}
+            multiline
+            rowsMax={Infinity}
             autoFocus
             margin="dense"
             id="elementDescription"
@@ -82,6 +84,7 @@ export default function AddElementDialog(props: AddElementDialogProps) {
           onClick={() => {
             addElement(createElementData(name, url, description));
             props.toggleDialogOpen();
+            setDescription("");
           }}
           color="primary"
           autoFocus

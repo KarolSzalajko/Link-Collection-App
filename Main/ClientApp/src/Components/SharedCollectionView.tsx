@@ -28,7 +28,6 @@ export default function SharedCollectionView(props: SharedCollectionViewProps) {
     sharedCollection,
     setSharedCollection,
   ] = useState<SharedCollection | null>(null);
-  debugger;
   const [addElementDialogOpen, setAddElementDialogOpen] = React.useState(false);
 
   const toggleAddElementDialogOpen = () => {
