@@ -15,34 +15,27 @@ type ShareCollectionDialogProps = {
   collectionId: number;
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      marginBlockEnd: "10px",
-    },
-  })
-);
-
 export default function ShareCollectionDialog(
   props: ShareCollectionDialogProps
 ) {
-  const classes = useStyles();
   const title = "Udostępnij kolekcję";
-  const description = `Możesz udostępnić tę kolekcję innym użytkownikom, aby mogli ją przeglądać.
+  const description = `Możesz udostępnić tę kolekcję innym , aby mogli ją edytować.
     Po udostępnieniu, kolekcja będzie widoczna w ich sekcji "Udostępnione dla mnie".`;
 
   const createSharedCollectionData = () => {
     return {
       collectionId: props.collectionId,
       userId: selectedUser!.id,
-      editRights: !!UserRights.ViewRights,
+      editRights: true,
     } as SharedCollectionData;
   };
-
-  const [users, setUsers] = useState(UsersStore.getUsers());
+  const currentUser = UsersStore.getCurrentUser()
+  const otherUsers = UsersStore.getUsers().filter(u => u.id !== currentUser?.id);
+  const [users, setUsers] = useState(otherUsers);
   useEffect(() => {
     const changeHandler = () => {
-      setUsers(UsersStore.getUsers());
+      setUsers(UsersStore.getUsers().filter(u => u.id !== UsersStore.getCurrentUser()?.id));
+      console.log(users);
     };
     UsersStore.addChangeListener(changeHandler);
     return () => UsersStore.removeChangeListener(changeHandler);

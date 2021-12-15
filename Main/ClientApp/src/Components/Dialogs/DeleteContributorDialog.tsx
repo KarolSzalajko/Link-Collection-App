@@ -13,7 +13,7 @@ type DeleteContributorDialogProps = {
 export default function DeleteContributorDialog(
   props: DeleteContributorDialogProps
 ) {
-  const title = "Czy chesz usunąć dostęp do kolekcji dla tego użytkownika?";
+  const title = "Czy chcesz usunąć dostęp do kolekcji dla tego użytkownika?";
   const description =
     "Ten użytkownik straci dostęp do tej kolekcji. Czy chcesz kontynuować?";
   return (

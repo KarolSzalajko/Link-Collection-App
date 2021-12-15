@@ -1,5 +1,5 @@
 import { List } from "@material-ui/core";
-import { Edit, People, Visibility } from "@material-ui/icons";
+import { Edit, People} from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import SharedCollectionsStore from "../../Stores/SharedCollectionsStore";
 import DrawerItem from "./DrawerItem";
@@ -32,8 +32,8 @@ export default function SharedSection() {
               title={sharedCollection.collection.name}
               link={`/collections/shared/${sharedCollection.collection.id}`}
               key={sharedCollection.collection.id}
-              icon={<Visibility />}
-              canBeModified={sharedCollection.editRights}
+              icon={<Edit />}
+              canBeModified={false}
             />
           ))}
         </List>

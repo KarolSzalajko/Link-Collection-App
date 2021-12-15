@@ -53,8 +53,7 @@ export default function SharedCollectionView(props: SharedCollectionViewProps) {
 
   return (
     <>
-      <BaseCollectionView collection={sharedCollection?.collection ?? null} hasEditRights={sharedCollection?.editRights}>
-        {sharedCollection?.editRights && (
+      <BaseCollectionView collection={sharedCollection?.collection ?? null} hasEditRights={true}>
           <Fab
             color="primary"
             aria-label="add"
@@ -65,7 +64,6 @@ export default function SharedCollectionView(props: SharedCollectionViewProps) {
             <AddIcon />
             Dodaj element
           </Fab>
-        )}
       </BaseCollectionView>
       <AddElementDialog
         toggleDialogOpen={toggleAddElementDialogOpen}
